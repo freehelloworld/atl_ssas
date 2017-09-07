@@ -1,0 +1,7 @@
+D:\works\trunk2\BI Projects\Altyntau\ALT_SSAS\Metsys.SSAS\Metsys.SSAS\bin\Debug\Metsys.SSAS.exe.config
+D:\works\trunk2\BI Projects\Altyntau\ALT_SSAS\Metsys.SSAS\Metsys.SSAS\obj\Debug\Metsys.SSAS.exe
+D:\works\trunk2\BI Projects\Altyntau\ALT_SSAS\Metsys.SSAS\Metsys.SSAS\obj\Debug\Metsys.SSAS.pdb
+D:\works\trunk2\BI Projects\Altyntau\ALT_SSAS\Metsys.SSAS\Metsys.SSAS\bin\Debug\Metsys.SSAS.exe
+D:\works\trunk2\BI Projects\Altyntau\ALT_SSAS\Metsys.SSAS\Metsys.SSAS\bin\Debug\Metsys.SSAS.pdb
+D:\works\trunk2\BI Projects\Altyntau\ALT_SSAS\Metsys.SSAS\Metsys.SSAS\bin\Debug\Microsoft.AnalysisServices.DLL
+D:\works\trunk2\BI Projects\Altyntau\ALT_SSAS\Metsys.SSAS\Metsys.SSAS\obj\Debug\Altyntau.SSAS.csprojResolveAssemblyReference.cache

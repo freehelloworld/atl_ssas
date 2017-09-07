@@ -120,7 +120,7 @@ namespace Metsys.SSAS
 
             Hierarchy hier;
 
-            hier = dim.Hierarchies.Add(translator.DoTranslate("by Company", languageId));
+            hier = dim.Hierarchies.Add(translator.DoTranslate("Data Structure", languageId));
             //hier.AllMemberName = "All Periods";
             hier.Levels.Add(translator.DoTranslate("Plant", languageId)).SourceAttributeID = "Plant";
             hier.Levels.Add(translator.DoTranslate("Plant Area", languageId)).SourceAttributeID = "Plant Area";
@@ -299,7 +299,7 @@ namespace Metsys.SSAS
 
             Hierarchy hier;
 
-            hier = dim.Hierarchies.Add(translator.DoTranslate("by Company", languageId));
+            hier = dim.Hierarchies.Add(translator.DoTranslate("Data Structure", languageId));
             //hier.AllMemberName = "All Periods";
             hier.Levels.Add(translator.DoTranslate("Plant", languageId)).SourceAttributeID = "Plant";
             hier.Levels.Add(translator.DoTranslate("Plant Area", languageId)).SourceAttributeID = "Plant Area";
