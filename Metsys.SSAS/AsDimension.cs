@@ -61,22 +61,22 @@ namespace Metsys.SSAS
 
                 string attrName = translator.DoTranslate(row[1].ToString(),languageId);
 
-                string keyCol = row[3].ToString();
+                string keyCol = row[2].ToString();
 
-                string nameColPr = row[4] == null ? "" : row[4].ToString();
-                string nameColSe = row[5] == null ? "" : row[5].ToString();
+                string nameColPr = row[3] == null ? "" : row[3].ToString();
+                string nameColSe = row[4] == null ? "" : row[4].ToString();
                 string nameCol = languageId == 1 ? nameColPr : nameColSe;
 
-                int usage = int.Parse(row[6].ToString());
-                int type = int.Parse(row[7].ToString());
-                int orderBy = int.Parse(row[8].ToString());
+                int usage = int.Parse(row[5].ToString());
+                int type = int.Parse(row[6].ToString());
+                int orderBy = int.Parse(row[7].ToString());
 
-                string displayEn = row[10] == null ? "" : row[10].ToString();
+                string displayEn = row[9] == null ? "" : row[9].ToString();
                 string display = translator.DoTranslate(displayEn, languageId);
 
-                string relationId = row[12] == null ? "" : row[12].ToString();
-                bool isVisible = bool.Parse(row[13].ToString());
-                string tableName = row[14].ToString();
+                string relationId = row[10] == null ? "" : row[10].ToString();
+                bool isVisible = bool.Parse(row[11].ToString());
+                string tableName = row[12].ToString();
 
 
                 attr = dim.Attributes.Add(attrId);
@@ -86,7 +86,7 @@ namespace Metsys.SSAS
                 attr.OrderBy = (OrderBy)orderBy;
                 if (orderBy == 3)
                 {
-                    string orderByAttrId = row[9].ToString();
+                    string orderByAttrId = row[8].ToString();
                     attr.OrderByAttributeID = orderByAttrId;
                 }
                 if (display != "" && !string.IsNullOrEmpty(displayEn))
@@ -127,83 +127,9 @@ namespace Metsys.SSAS
             hier.Levels.Add(translator.DoTranslate("Equipment Group", languageId)).SourceAttributeID = "Equipment Group";
             hier.Levels.Add(translator.DoTranslate("Equipment Item", languageId)).SourceAttributeID = "Equipment Item";
             hier.Levels.Add(translator.DoTranslate("Measure Point", languageId)).SourceAttributeID = "Measure Point";
-            
-
 
             #endregion
             dim.Update();
-
-            //Dimension dim = db.Dimensions.FindByName("Measure Point");
-            //if (dim != null)
-            //    dim.Drop();
-            //dim = db.Dimensions.Add("Measure Point");
-
-            //dim.Type = DimensionType.Regular;
-            //dim.UnknownMember = UnknownMemberBehavior.Hidden;
-            ////dim.AttributeAllMemberName = "All Periods";
-            //dim.Source = new DataSourceViewBinding("dsv" + db.Name);
-            //dim.StorageMode = DimensionStorageMode.Molap;
-
-            
-
-            //DimensionAttribute attr;
-
-            //attr = dim.Attributes.Add("Plant");
-            //attr.Name = "Plant Test";
-            //attr.Usage = AttributeUsage.Regular;
-            //attr.Type = AttributeType.Regular;
-            //attr.OrderBy = OrderBy.Name;
-            //attr.AttributeHierarchyDisplayFolder = "Measure Point";
-            //attr.KeyColumns.Add(CreateDataItem(db.DataSourceViews[0], "Dim_MeasurePoint", "PlantID"));
-            //attr.NameColumn = CreateDataItem(db.DataSourceViews[0], "Dim_MeasurePoint", "PlantName");
-
-            //attr = dim.Attributes.Add("Plant Area Number");
-            //attr.Name = "Nmuber test";
-            //attr.Usage = AttributeUsage.Regular;
-            //attr.Type = AttributeType.Regular;
-            //attr.OrderBy = OrderBy.Name;
-            //attr.AttributeHierarchyVisible = false;
-            //attr.KeyColumns.Add(CreateDataItem(db.DataSourceViews[0], "Dim_MeasurePoint", "PlantAreaNumber"));
-
-            //attr = dim.Attributes.Add("Plant Area");
-            //attr.Usage = AttributeUsage.Regular;
-            //attr.Type = AttributeType.Regular;
-            //attr.OrderBy = OrderBy.AttributeName;
-            //attr.OrderByAttributeID = "Plant Area Number";//dim.Attributes.FindByName("Plant Area Number"); //WTF?
-            //attr.AttributeHierarchyDisplayFolder = "Measure Point";
-            //attr.KeyColumns.Add(CreateDataItem(db.DataSourceViews[0], "Dim_MeasurePoint", "PlantAreaID"));
-            //attr.NameColumn = CreateDataItem(db.DataSourceViews[0], "Dim_MeasurePoint", "PlantAreaName_pr");
-            //attr.AttributeRelationships.Add(new AttributeRelationship("Plant"));
-            //attr.AttributeRelationships.Add(new AttributeRelationship("Plant Area Number"));
-
-            //attr = dim.Attributes.Add("Equipment Group");
-            //attr.Name = "EG_pr";
-            //attr.Usage = AttributeUsage.Regular;
-            //attr.Type = AttributeType.Regular;
-            //attr.OrderBy = OrderBy.Name;
-            //attr.AttributeHierarchyDisplayFolder = "Measure Point";
-            //attr.KeyColumns.Add(CreateDataItem(db.DataSourceViews[0], "Dim_MeasurePoint", "EquipmentGroupID"));
-            //attr.NameColumn = CreateDataItem(db.DataSourceViews[0], "Dim_MeasurePoint", "EquipmentGroupName_pr");
-            //attr.AttributeRelationships.Add(new AttributeRelationship("Plant Area"));
-
-            //attr = dim.Attributes.Add("Equipment Item");
-            //attr.Usage = AttributeUsage.Regular;
-            //attr.Type = AttributeType.Regular;
-            //attr.OrderBy = OrderBy.Name;
-            //attr.AttributeHierarchyDisplayFolder = "Measure Point";
-            //attr.KeyColumns.Add(CreateDataItem(db.DataSourceViews[0], "Dim_MeasurePoint", "EquipmentItemID"));
-            //attr.NameColumn = CreateDataItem(db.DataSourceViews[0], "Dim_MeasurePoint", "EquipmentItemName_pr");
-            //attr.AttributeRelationships.Add(new AttributeRelationship("Equipment Group"));
-
-            //attr = dim.Attributes.Add("Measure Point");
-            //attr.Usage = AttributeUsage.Key;
-            //attr.Type = AttributeType.Regular;
-            //attr.OrderBy = OrderBy.Name;
-            //attr.AttributeHierarchyDisplayFolder = "Measure Point";
-            //attr.KeyColumns.Add(CreateDataItem(db.DataSourceViews[0], "Dim_MeasurePoint", "MeasurePointID"));
-            //attr.NameColumn = CreateDataItem(db.DataSourceViews[0], "Dim_MeasurePoint", "MeasurePointName_pr");
-            //attr.AttributeRelationships.Add(new AttributeRelationship("Equipment Item"));
-           
         }
 
         public static void CreateMpLabDimension(Database db, int languageId)
@@ -233,22 +159,22 @@ namespace Metsys.SSAS
                 string attrId = row[0].ToString();
                 string attrName = translator.DoTranslate(row[1].ToString(), languageId);
 
-                string keyCol = row[3].ToString();
+                string keyCol = row[2].ToString();
 
-                string nameColPr = row[4] == null ? "" : row[4].ToString();
-                string nameColSe = row[5] == null ? "" : row[5].ToString();
+                string nameColPr = row[3] == null ? "" : row[3].ToString();
+                string nameColSe = row[4] == null ? "" : row[4].ToString();
                 string nameCol = languageId == 1 ? nameColPr : nameColSe;
 
-                int usage = int.Parse(row[6].ToString());
-                int type = int.Parse(row[7].ToString());
-                int orderBy = int.Parse(row[8].ToString());
+                int usage = int.Parse(row[5].ToString());
+                int type = int.Parse(row[6].ToString());
+                int orderBy = int.Parse(row[7].ToString());
 
-                string displayEn = row[10] == null ? "" : row[10].ToString();
+                string displayEn = row[9] == null ? "" : row[9].ToString();
                 string display = translator.DoTranslate(displayEn, languageId); ;
 
-                string relationId = row[12] == null ? "" : row[12].ToString();
-                bool isVisible = bool.Parse(row[13].ToString());
-                string tableName = row[14].ToString();
+                string relationId = row[10] == null ? "" : row[10].ToString();
+                bool isVisible = bool.Parse(row[11].ToString());
+                string tableName = row[12].ToString();
 
                 
 
@@ -260,7 +186,7 @@ namespace Metsys.SSAS
                 attr.OrderBy = (OrderBy)orderBy;
                 if (orderBy == 3)
                 {
-                    string orderByAttrId = row[9].ToString();
+                    string orderByAttrId = row[8].ToString();
                     attr.OrderByAttributeID = orderByAttrId;
                 }
                 if (display != "" && !string.IsNullOrEmpty(displayEn))
@@ -300,7 +226,6 @@ namespace Metsys.SSAS
             Hierarchy hier;
 
             hier = dim.Hierarchies.Add(translator.DoTranslate("Data Structure", languageId));
-            //hier.AllMemberName = "All Periods";
             hier.Levels.Add(translator.DoTranslate("Plant", languageId)).SourceAttributeID = "Plant";
             hier.Levels.Add(translator.DoTranslate("Plant Area", languageId)).SourceAttributeID = "Plant Area";
             hier.Levels.Add(translator.DoTranslate("Equipment Group", languageId)).SourceAttributeID = "Equipment Group";
