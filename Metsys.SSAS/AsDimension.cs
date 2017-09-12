@@ -434,7 +434,9 @@ namespace Metsys.SSAS
         /// <param name="languageId"></param>
         public static void CreateProductionDateDimension(Database db, int languageId)
         {
-            string tableName = "Dim_ProductionTime";
+            //string tableName = "Dim_ProductionTime";
+
+            string tableName = languageId == 1? "Dim_ProductionTime": "Dim_ProductionTime_Ru";
 
             LocalDictionary translator = LocalDictionary.Instance(db);
             string dimName = translator.DoTranslate("Production Time", languageId);

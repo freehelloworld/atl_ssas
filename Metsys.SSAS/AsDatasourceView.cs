@@ -47,6 +47,8 @@ namespace Metsys.SSAS
 
             AddView(dsv, connection, "Dim_ProductionTime");
 
+            AddView(dsv, connection, "Dim_ProductionTime_Ru");
+
             AddNamedQuery(dsv, connection, "Dim_Time");
 
             AddView(dsv, connection, "Dim_Comment");
