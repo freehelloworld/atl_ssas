@@ -90,7 +90,7 @@ namespace Metsys.SSAS
                 }
                 else
                 {
-                    return enWord+"_TBT";
+                    return enWord;
                 }    
             }
 
