@@ -142,7 +142,7 @@ namespace Metsys.SSAS
             scriptToRun += String.Format(typeAgg, measures, measureValue, measurePoint, scaler);
             scriptToRun += "\nEND SCOPE;\nEND SCOPE;\nEND SCOPE;";
 
-            string prodMeasure = "\n\nCREATE MEMBER CURRENTCUBE.[Measures].[Product Value]";
+            string prodMeasure = "\n\nCREATE MEMBER CURRENTCUBE.[Measures].[{0}]";
             scriptToRun += String.Format(prodMeasure, prodValue);
             prodMeasure = "\nAS Measures.[Product Value Base], \nFORMAT_STRING = \"Standard\", \nNON_EMPTY_BEHAVIOR = { [Product Value Base] },";
             scriptToRun += prodMeasure;

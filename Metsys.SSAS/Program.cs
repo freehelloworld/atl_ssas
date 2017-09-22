@@ -70,15 +70,17 @@ namespace Metsys.SSAS
 
                     AsCube.CreateLabCube(asDb,1);
                     AsCube.CreateLabCube(asDb, 2);
-                  
+
+
+                    AddScripts script = new AddScripts(asDb);
+                    script.AddScript2Dw("Measure Point DW", 1);
+                    script.AddScript2Dw("Measure Point DW", 2);
+
+                    script.AddScript2LabDw("Lab DW", 1);
+                    script.AddScript2LabDw("Lab DW", 2);
                 }
 
-                AddScripts script = new AddScripts(asDb);
-                script.AddScript2Dw("Measure Point DW", 1);
-                script.AddScript2Dw("Measure Point DW", 2);
-
-                script.AddScript2LabDw("Lab DW", 1);
-                script.AddScript2LabDw("Lab DW", 2);
+                
 
             }
 
